@@ -4340,6 +4340,7 @@ body:has(#console.show) #nav-music {
 }
 #anMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-music .aplayer-author,
 #anMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-music .aplayer-title {
+  font-family: "方正舒体";
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -4347,10 +4348,11 @@ body:has(#console.show) #nav-music {
 #anMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc {
   height: 800%;
   margin-top: 10px;
+  font-family: "方正舒体";
   mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, rgba(0,0,0,0), rgba(0,0,0,0));
 }
 #anMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc p {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 20px !important;
   height: 20px !important;
   margin: 20px 0 !important;
@@ -4465,7 +4467,8 @@ body:has(#console.show) #nav-music {
 }
 #anMusic-page meting-js .aplayer ol > li {
   border-top: 1px solid transparent;
-  font-size: 14px;
+  font-size: 21px;
+  font-family: "华文楷体";
 }
 #anMusic-page meting-js .aplayer ol > li:hover {
   background: rgba(255,255,255,0.2);
@@ -4481,6 +4484,9 @@ body:has(#console.show) #nav-music {
 }
 #anMusic-page meting-js .aplayer ol > li.aplayer-list-light .aplayer-list-cur {
   display: none;
+}
+#anMusic-page meting-js .aplayer ol > li.aplayer-list-light .aplayer-list-author {
+  font-weight: bolder;
 }
 #anMusic-page meting-js .aplayer ol > li span {
   color: var(--anzhiyu-white);
