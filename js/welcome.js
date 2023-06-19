@@ -129,7 +129,13 @@ function showWelcome() {
                     }
                     break;
                 case "安徽省":
-                    posdesc = "蚌埠住了，芜湖起飞";
+                    switch (ipLocation.result.ad_info.city) {
+                        case "合肥市":
+                            posdesc = "合眼逢君一夜欢，肥鳜香粳小艛艓";
+                            break;
+                        default:
+                            posdesc = "每一个地方，都是一首优美的诗！"
+                    }
                     break;
                 case "福建省":
                     posdesc = "井邑白云间，岩城远带山";
@@ -228,13 +234,13 @@ function showWelcome() {
     else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>☀️ 中午好，记得午休喔~</span>";
     else if (date.getHours() >= 13 && date.getHours() < 17) timeChange = "<span>🕞 下午好，饮茶先啦！</span>";
     else if (date.getHours() >= 17 && date.getHours() < 19) timeChange = "<span>🚶‍♂️ 即将下班，记得按时吃饭~</span>";
-    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>🌙 晚上好，夜生活嗨起来！</span>";
+    else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>🌙 晚上好，记得早睡，晚安！</span>";
     else timeChange = "夜深了，早点休息，少熬夜";
 
     try {
         //自定义文本和需要放的位置
         document.getElementById("welcome-info").innerHTML =
-            `欢迎来自 <b><span style="color: var(--kouseki-ip-color);font-size: var(--kouseki-gl-size)">${pos}</span></b> 的小友💖<br>${posdesc}🍂<br>当前位置距博主约 <b><span style="color: var(--kouseki-ip-color)">${dist}</span></b> 公里！<br>您的IP地址为：<b><span>${ip}</span></b><br>${timeChange} <br>`;
+            `<span class="welcome" >✨欢迎你✨</span><br>💖来自 <span style="color: var(--kouseki-ip-color);font-size: var(--kouseki-gl-size)">${pos}</span></b>的朋友💖<br>${posdesc}🍂<br>🚇️当前位置距离我约 <b><span style="color: var(--kouseki-ip-color)">${dist}</span></b> 公里！<br>${timeChange} <br>`;
     } catch (err) {
          console.log("Pjax无法获取元素")
     }
