@@ -2603,7 +2603,7 @@ figure.highlight pre .javascript .function {
 #article-container .code-expand-btn:not(.expand-done) ~ table,
 #article-container .code-expand-btn:not(.expand-done) ~ pre {
   overflow: hidden;
-  height: 330px;
+  height: 10px;
 }
 @-moz-keyframes code-expand-key {
   0% {
@@ -16888,10 +16888,9 @@ svg.icon {
 }
 
 /*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
-/* #page-header:not(.not-top-img):before {
+ /* #page-header:not(.not-top-img):before {
   background-color: transparent !important;
-} */
-
+}   */
 /* 文章页面正文背景 */
 div#post {
   background: rgba(255, 255, 255, 0.9);
@@ -20206,6 +20205,7 @@ div#bannerGroup {
   }
   #home_top ~ main {
     margin-top: 0;
+
   }
 }
 
