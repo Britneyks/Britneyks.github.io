@@ -7484,7 +7484,7 @@ h1.page-title + .tag-cloud-list {
   transition: 0.6s;
   background-color: transparent;
   overflow: hidden;
-  background-color: var(--anzhiyu-bar-background);
+  background-color: transparent;
 }
 #page-header.post-bg #nav {
   -webkit-transition: all 0.5s, border 0.3s;
@@ -7521,6 +7521,7 @@ h1.page-title + .tag-cloud-list {
   border-radius: 0px;
 }
 .main-hero-waves-area {
+  display: none;
   width: 100%;
   position: absolute;
   left: 0;
@@ -16882,9 +16883,9 @@ svg.icon {
 }
 
 /*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
- /* #page-header:not(.not-top-img):before {
+#page-header:not(.not-top-img):before {
   background-color: transparent !important;
-}   */
+}   
 /* 文章页面正文背景 */
 div#post {
   background: rgba(255, 255, 255, 0.6);
