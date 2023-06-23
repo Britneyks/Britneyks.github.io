@@ -62,7 +62,8 @@ function createWinbox() {
     // 每一类我放了一个演示，直接往下复制粘贴 a标签 就可以，需要注意的是 函数里面的链接 冒号前面需要添加反斜杠\进行转义
     winbox.body.innerHTML = `
     <div id="article-container" style="padding:10px;">
-    <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#5fcdff;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
+    <div class="note orange icon-padding disabled"><i class="note-icon fas fa-battery-half"></i><p>温馨提示：背景图片缓存时间为24h，一天后将恢复默认背景</p></div>
+    <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#0084ff;display:block;width:30%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
     <!--
     <h2 id="图片（手机）"><a href="#图片（手机）" class="headerlink" title="图片（手机）"></a>图片（手机）</h2>
     <div class="bgbox">

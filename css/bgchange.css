@@ -4,6 +4,10 @@
     border-radius: 12px;
     overflow: hidden;
 }
+#changeBgBox > div.wb-header > div.wb-drag > div.wb-title{
+    color: var(--font-color);
+    font-weight: bold;
+}
 #article-container > div:nth-child(7)>a:hover,
 #article-container > div:nth-child(5)>a:hover,
 #article-container > div:nth-child(3) > a:hover{
@@ -51,6 +55,7 @@
 .pimgbox {
     height: 240px;
 }
+
 
 @media screen and (max-width: 768px) {
     /* 背景 */
