@@ -8,6 +8,3 @@
 #welcome-info > b > center{
   font-size: larger;
 }
-[data-theme="dark"] #welcome-info {
-  background: #212121;
-}
