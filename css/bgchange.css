@@ -8,10 +8,10 @@
     color: var(--font-color);
     font-weight: bold;
 }
-#article-container > div:nth-child(7)>a:hover,
-#article-container > div:nth-child(5)>a:hover,
-#article-container > div:nth-child(3) > a:hover{
-    transform: scale(1.2);
+#article-container > div:nth-child(4)>a:hover,
+#article-container > div:nth-child(8)>a:hover,
+#article-container > div:nth-child(6) > a:hover{
+    transform: scale(1.2) !important;
     border-radius: 0.7em !important;
 }
 
