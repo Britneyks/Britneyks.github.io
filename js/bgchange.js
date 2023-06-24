@@ -84,6 +84,9 @@ function createWinbox() {
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://p2.qhimg.com/bdm/2560_1600_0/t01c794718372e4f003.jpg)" class="imgbox" onclick="changeBg('url(http://p2.qhimg.com/bdm/2560_1600_0/t01c794718372e4f003.jpg)')"></a>
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://p18.qhimg.com/bdm/2560_1600_0/t01c253c16e180814f5.jpg)" class="imgbox" onclick="changeBg('url(http://p18.qhimg.com/bdm/2560_1600_0/t01c253c16e180814f5.jpg)')"></a>
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://p1.qhimg.com/bdm/2560_1600_0/t01054da51d6beb507c.jpg)" class="imgbox" onclick="changeBg('url(http://p1.qhimg.com/bdm/2560_1600_0/t01054da51d6beb507c.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://bu.dusays.com/2023/06/24/64965890b1537.jpg)" class="imgbox" onclick="changeBg('url(https://bu.dusays.com/2023/06/24/64965890b1537.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://bu.dusays.com/2021/01/21/8b4bf7c986880.jpg)" class="imgbox" onclick="changeBg('url(https://bu.dusays.com/2021/01/21/8b4bf7c986880.jpg)')"></a>
+    <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://bu.dusays.com/2023/06/24/649658940db68.jpg)" class="imgbox" onclick="changeBg('url(https://bu.dusays.com/2023/06/24/649658940db68.jpg)')"></a>
     </div>
     
     <h2 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h2>
