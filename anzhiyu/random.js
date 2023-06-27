@@ -1,1 +1,1 @@
-var posts=["2023/06/19/TagPlug/","2023/06/16/IDM/","2023/05/29/airport/","2023/06/19/aside/","2023/06/04/hello-world/","2023/05/29/hexo_deploy/","2023/06/16/psai/","2023/06/13/web-name/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+var posts=["2023/06/16/IDM/","2023/06/19/TagPlug/","2023/06/04/hello-world/","2023/06/19/aside/","2023/05/29/hexo_deploy/","2023/06/13/web-name/","2023/05/29/airport/","2023/06/16/psai/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
