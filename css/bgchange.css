@@ -15,6 +15,10 @@
     border-radius: 0.7em !important;
 }
 
+.wb-drag{
+    background: rgb(146, 209, 209);
+}
+
 .wb-full {
     display: none;
 }

@@ -16994,7 +16994,7 @@ div#category {
     .no-text-decoration
   ):hover {
   color: var(--anzhiyu-white);
-  background: var(--anzhiyu-main);
+  /* background: var(--anzhiyu-main); */
   box-shadow: var(--anzhiyu-shadow-lightblack);
   border-radius: 0.25em;
   text-decoration: none;
