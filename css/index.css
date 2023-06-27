@@ -2991,6 +2991,168 @@ figure.highlight pre .javascript .function {
   margin: 6px 0;
   padding: 0.12em 0.4em 0.12em 1.4em;
 }
+.collect h2 {
+  margin-bottom: 0;
+}
+.collect .collect-desc {
+  margin-bottom: 10px;
+}
+.collect .collect-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  gap: 18px;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.collect .collect-list .collect_box {
+  --w: calc(100% / 6 - 15px);
+  width: var(--w);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  color: #fff;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+}
+.collect .collect-list .collect_box::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+}
+.collect .collect-list .collect_box:hover {
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+.collect .collect-list .collect_box:hover::after {
+  background: rgba(0,0,0,0.1);
+}
+.collect .collect-list .collect_box .collect_top {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  z-index: 1;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.collect .collect-list .collect_box .collect_content {
+  z-index: 1;
+  margin-top: 86%;
+}
+.collect .collect-list .collect_box .collect_content span {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+[data-theme='dark'] .collect .collect-list .collect_box {
+  color: #ddd !important;
+}
+[data-theme='dark'] .collect .collect-list .collect_box:hover {
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
+[data-theme='dark'] .collect .collect-list .collect_box:hover::after {
+  background: rgba(0,0,0,0.2);
+}
+[data-theme='dark'] .collect .collect-list .collect_box::after {
+  background: rgba(0,0,0,0.5);
+}
+@media screen and (max-width: 1100px) {
+  .collect .collect-list {
+    gap: 15px;
+  }
+  .collect .collect-list .collect_box {
+    --w: calc(20% - 12px);
+  }
+}
+@media screen and (max-width: 900px) {
+  .collect .collect-list {
+    gap: 16px;
+  }
+  .collect .collect-list .collect_box {
+    --w: calc(25% - 12px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .collect .collect-list {
+    gap: 15px;
+  }
+  .collect .collect-list .collect_box {
+    --w: calc(100% / 3 - 10px);
+  }
+}
+@media screen and (max-width: 500px) {
+  .collect .collect-list {
+    gap: 16px;
+  }
+  .collect .collect-list .collect_box {
+    --w: calc(50% - 8px);
+  }
+}
 #web_container {
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -9397,12 +9559,7 @@ blockquote {
 #article-container h4,
 #article-container h5,
 #article-container h6 {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
+  display: block;
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -o-box-pack: justify;
