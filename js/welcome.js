@@ -131,7 +131,7 @@ function showWelcome() {
                 case "安徽省":
                     switch (ipLocation.result.ad_info.city) {
                         case "合肥市":
-                            posdesc = "合眼逢君一夜欢，肥鳜香粳小艛艓";
+                            posdesc = "合眼逢君一夜欢，肥鳜香粳小艛艓。";
                             break;
                         default:
                             posdesc = "每一个地方，都是一首优美的诗！"
@@ -240,7 +240,7 @@ function showWelcome() {
     try {
         //自定义文本和需要放的位置
         document.getElementById("welcome-info").innerHTML =
-        `<b><center>🎉 欢迎信息 🎉</center></b>&emsp;&emsp;欢迎来自 <span style="color: var(--kouseki-welcome-color)")>${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color: var(--kouseki-welcome-color)")>${dist}</span> 公里，当前的IP地址为： <b><center>${ip}</center></b>${posdesc}</br>`;
+        `<b><center>🎉 欢迎信息 🎉</center></b>&emsp;&emsp;欢迎来自 <span style="color: var(--kouseki-welcome-color)")>${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color: var(--kouseki-welcome-color)")>${dist}</span> 公里，当前的IP地址为： <b><center>${ip}</center></b><center>${posdesc}</center>`;
     } catch (err) {
          console.log("Pjax无法获取元素")
     }
