@@ -17,6 +17,12 @@ function loadData(name, time) {
 }
 
 // 上面两个函数如果你有其他需要存取数据的功能，也可以直接使用
+// 读取字体
+try {
+    let fontdata = loadData('blogfont', 1440)
+    if (fontdata) setFont(fontdata, 1)
+    else localStorage.removeItem('blogfont');
+} catch (error) { localStorage.removeItem('blogfont'); }
 
 // 读取背景
 try {
@@ -24,6 +30,17 @@ try {
     if (data) changeBg(data, 1)
     else localStorage.removeItem('blogbg');
 } catch (error) { localStorage.removeItem('blogbg'); }
+
+function setFont(n,flag){
+    if(n=="main"){
+        document.body.style.fontFamily="-apple-system, IBM Plex Mono ,monosapce,'微软雅黑', sans-serif"
+    }
+    else{
+        document.body.style.fontFamily= n
+        // document.documentElement.style.setProperty('--global-font', n)
+    }
+    if (!flag) { saveData('blogfont', n) }
+}
 
 // 切换背景函数
 // 此处的flag是为了每次读取时都重新存储一次,导致过期时间不稳定
@@ -62,14 +79,30 @@ function createWinbox() {
     // 每一类我放了一个演示，直接往下复制粘贴 a标签 就可以，需要注意的是 函数里面的链接 冒号前面需要添加反斜杠\进行转义
     winbox.body.innerHTML = `
     <div id="article-container" style="padding:10px;">
-    <div class="note orange icon-padding disabled"><i class="note-icon fas fa-battery-half"></i><p>温馨提示：背景图片缓存时间为24h，一天后将恢复默认背景</p></div>
-    <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#0084ff;display:block;width:30%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
+    <div class="note orange icon-padding disabled"><i class="note-icon fas fa-battery-half"></i><p>温馨提示：背景图片与字体缓存时间为24h，一天后将恢复默认状态</p></div>
+    <div class="default">
+    <button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#0084ff;display:inline-block;width:30%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button>
+    <button onclick="localStorage.removeItem('blogfont');location.reload();" style="background:#0084ff;display:inline-block;width:30%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认字体</button>
+    </div>
     <!--
     <h2 id="图片（手机）"><a href="#图片（手机）" class="headerlink" title="图片（手机）"></a>图片（手机）</h2>
     <div class="bgbox">
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://img.vm.laomishuo.com/image/2021/12/2021122715170589.jpeg)" class="pimgbox" onclick="changeBg('url(https\://img.vm.laomishuo.com/image/2021/12/2021122715170589.jpeg)')"></a>
     </div>
     -->
+    <h2 id="字体切换"><a href="#字体切换" class="headerlink" title="字体切换"></a>字体切换</h2>
+    <div class="swfs">
+    <span>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: cursive !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('cursive')">手写字体</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: 鸿雷拙书简体 !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('鸿雷拙书简体')">鸿雷拙书简体</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: AliDL !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('AliDL')">阿里刀隶体</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: BTZ !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('BTZ')">字魂扁桃字</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: 汉字之美神勇兔生肖 !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('汉字之美神勇兔生肖')">汉字之美神勇兔生肖</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: 钟齐志莽行书 !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('钟齐志莽行书')">钟齐志莽行书</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: 今年也要加油鸭 !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('今年也要加油鸭')">今年也要加油鸭</button>
+    <button class="fontbox" href="javascript:;" rel="noopener external nofollow" style="font-family: 小可奶酪体 !important; background:#8cdfe0;display:inline-block;width:20%;padding: 15px 0;border-radius:6px;color:black;" onclick="setFont('小可奶酪体')">小可奶酪体</button>
+    </span>
+    </div>
     <h2 id="图片（电脑）"><a href="#图片（电脑）" class="headerlink" title="图片（电脑）"></a>图片（电脑）</h2>
     <div class="bgbox">
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(http://p16.qhimg.com/bdm/2560_1600_0/t01441e0d716a8e5c99.jpg)" class="imgbox" onclick="changeBg('url(http://p16.qhimg.com/bdm/2560_1600_0/t01441e0d716a8e5c99.jpg)')"></a>

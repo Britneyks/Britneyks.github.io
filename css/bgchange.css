@@ -1,5 +1,39 @@
 /* 由于全屏会出bug，所以直接给他隐藏 */
-
+@font-face {
+    font-family: BTZ;
+    src: url(/myfont/字魂扁桃体.ttf);
+    font-display: swap;
+}
+@font-face {
+    font-family: AliDL;
+    src: url(/myfont/AlimamaDaoLiTi.ttf);
+    font-display: swap;
+}
+@font-face {
+    font-family: 鸿雷拙书简体;
+    src: url(/myfont/鸿雷拙书简体.otf);
+    font-display: swap;
+}
+@font-face {
+    font-family: 汉字之美神勇兔生肖;
+    src: url(/myfont/汉字之美神勇兔生肖.ttf);
+    font-display: swap;
+}
+@font-face {
+    font-family: 钟齐志莽行书;
+    src: url(/myfont/钟齐志莽行书.ttf);
+    font-display: swap;
+}
+@font-face {
+    font-family: 今年也要加油鸭;
+    src: url(/myfont/今年也要加油鸭.ttf);
+    font-display: swap;
+}
+@font-face {
+    font-family: 小可奶酪体;
+    src: url(/myfont/小可奶酪体商用免费@庆科字体.ttf);
+    font-display: swap;
+}
 .winbox {
     border-radius: 12px;
     overflow: hidden;
@@ -8,11 +42,25 @@
     color: var(--font-color);
     font-weight: bold;
 }
+
 #article-container > div:nth-child(4)>a:hover,
 #article-container > div:nth-child(8)>a:hover,
 #article-container > div:nth-child(6) > a:hover{
     transform: scale(1.2) !important;
     border-radius: 0.7em !important;
+}
+
+#article-container > div.note.orange.icon-padding.disabled > p
+{
+    font-weight: bold;
+}
+
+#article-container > div.swfs > span > button{
+    margin: 15px;
+    padding: 25px 0 !important;
+}
+#article-container > div.swfs > span >button:hover{
+    transform: scale(1.1) !important;
 }
 
 .wb-drag{
