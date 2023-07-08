@@ -50,7 +50,9 @@ function changeBg(s, flag) {
     if (s.charAt(0) == '#') {
         bg.style.backgroundColor = s
         bg.style.backgroundImage = 'none'
-    } else bg.style.backgroundImage = s
+    } 
+    else 
+        bg.style.backgroundImage = s
     if (!flag) { saveData('blogbg', s) }
 }
 
