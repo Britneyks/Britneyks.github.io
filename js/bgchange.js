@@ -47,12 +47,22 @@ function setFont(n,flag){
 // 如果flag为0则存储,即设置背景. 为1则不存储,即每次加载自动读取背景.
 function changeBg(s, flag) {
     let bg = document.getElementById('web_bg')
+    let aside = document.getElementsByClassName('card-widget')
+    let post = document.getElementsByClassName('recent-post-info')
     if (s.charAt(0) == '#') {
         bg.style.backgroundColor = s
         bg.style.backgroundImage = 'none'
     } 
-    else 
+    else if (s.charAt(0) == 'l') {
+        for (let i = 0; i < aside.length; i++) 
+            aside[i].style.background = s
+        for (let j = 6; j < post.length; j++)
+            post[j].style.background = s
         bg.style.backgroundImage = s
+    }
+    else {
+        bg.style.backgroundImage = s
+    }
     if (!flag) { saveData('blogbg', s) }
 }
 
