@@ -6467,6 +6467,33 @@ body[data-type="link"] #page .page-title {
 #recent-posts > .recent-post-item > .recent-post-info > .article-title {
   margin: 0 !important;
 }
+#recent-posts > .recent-post-item:not(a)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -300%;
+  width: 300%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, transparent, #fff, transparent);
+  background: -moz-linear-gradient(left, transparent, #fff, transparent);
+  background: -o-linear-gradient(left, transparent, #fff, transparent);
+  background: -ms-linear-gradient(left, transparent, #fff, transparent);
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  -webkit-transform: skew(-60deg);
+  -moz-transform: skew(-60deg);
+  -o-transform: skew(-60deg);
+  -ms-transform: skew(-60deg);
+  transform: skew(-60deg);
+  z-index: 1;
+}
+#recent-posts > .recent-post-item:not(a):hover::before {
+  left: 140%;
+  -webkit-transition: all 1.2s;
+  -moz-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  -ms-transition: all 1.2s;
+  transition: all 1.2s;
+}
 body[data-type="music"] {
   background: #0d0d0d;
 }
