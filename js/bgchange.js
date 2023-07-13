@@ -53,13 +53,13 @@ function changeBg(s, flag) {
         bg.style.backgroundColor = s
         bg.style.backgroundImage = 'none'
     } 
-    else if (s.charAt(0) == 'l') {
-        for (let i = 0; i < aside.length; i++) 
-            aside[i].style.background = s
-        for (let j = 6; j < post.length; j++)
-            post[j].style.background = s
-        bg.style.backgroundImage = s
-    }
+    // else if (s.charAt(0) == 'l') {
+    //     for (let i = 0; i < aside.length; i++) 
+    //         aside[i].style.background = s
+    //     for (let j = 6; j < post.length; j++)
+    //         post[j].style.background = s
+    //     bg.style.backgroundImage = s
+    // }
     else {
         bg.style.backgroundImage = s
     }
