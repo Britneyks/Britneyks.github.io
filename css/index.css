@@ -10920,6 +10920,11 @@ ul.menus_item_child {
     background: var(--anzhiyu-main);
   }
 }
+@media screen and (max-width: 768px) {
+  #fps {
+    display: none;
+  }
+}
 #page-header #nav #page-name {
   display: inline;
   font-weight: bold;

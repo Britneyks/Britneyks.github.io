@@ -131,7 +131,7 @@ function showWelcome() {
                 case "安徽省":
                     switch (ipLocation.result.ad_info.city) {
                         case "合肥市":
-                            posdesc = "合眼逢君一夜欢，肥鳜香粳小艛艓。";
+                            posdesc = "古道当长坂，肩與入暮天";
                             break;
                         default:
                             posdesc = "每一个地方，都是一首优美的诗！"
