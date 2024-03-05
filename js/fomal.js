@@ -99,7 +99,7 @@ function getDistance(e1, n1, e2, n2) {
 
 function showWelcome() {
 
-  let dist = getDistance(30.761999,103.984073, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
+  let dist = getDistance(103.98,30.76, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
   let ip;
   let posdesc;
@@ -3177,10 +3177,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(/img/home_bg.webp);
-    --darkmode-bg:url(/img/dark_mode.webp);
-    --mobileday-bg: url(/img/snow.webp);
-    --mobilenight-bg: url(/img/mb8.webp);
+    --default-bg: url(https://bu.dusays.com/2023/09/25/6511a00fd81e5.webp);
+    --darkmode-bg:url(https://bu.dusays.com/2023/09/25/6511a01001aee.webp);
+    --mobileday-bg: url(https://bu.dusays.com/2024/03/05/65e71d7a59004.webp);
+    --mobilenight-bg: url(https://bu.dusays.com/2023/09/25/65119ea97d142.webp);
   }`;
 }
 // 切换背景主函数
