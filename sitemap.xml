@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zifyu.top/box/nav/index.html</loc>
+    <loc>https://zifyu.top/personal/love/index.html</loc>
     
     <lastmod>2024-03-05</lastmod>
     
@@ -11,7 +11,16 @@
   </url>
   
   <url>
-    <loc>https://zifyu.top/personal/love/index.html</loc>
+    <loc>https://zifyu.top/posts/42d8803e.html</loc>
+    
+    <lastmod>2024-03-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zifyu.top/box/nav/index.html</loc>
     
     <lastmod>2024-03-05</lastmod>
     
@@ -182,15 +191,6 @@
   </url>
   
   <url>
-    <loc>https://zifyu.top/personal/bb/index.html</loc>
-    
-    <lastmod>2024-03-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zifyu.top/site/census/index.html</loc>
     
     <lastmod>2024-03-04</lastmod>
@@ -201,6 +201,15 @@
   
   <url>
     <loc>https://zifyu.top/site/time/index.html</loc>
+    
+    <lastmod>2024-03-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zifyu.top/personal/bb/index.html</loc>
     
     <lastmod>2024-03-04</lastmod>
     
@@ -236,6 +245,27 @@
 
   
   <url>
+    <loc>https://zifyu.top/tags/Verilog/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zifyu.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zifyu.top/tags/FPGA/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zifyu.top/tags/Markdown/</loc>
     <lastmod>2024-03-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -250,6 +280,13 @@
   </url>
   
 
+  
+  <url>
+    <loc>https://zifyu.top/categories/FPGA%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2024-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://zifyu.top/categories/%E6%BC%94%E7%A4%BA/</loc>
