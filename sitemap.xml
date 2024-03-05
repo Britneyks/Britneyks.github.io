@@ -191,6 +191,15 @@
   </url>
   
   <url>
+    <loc>https://zifyu.top/personal/bb/index.html</loc>
+    
+    <lastmod>2024-03-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zifyu.top/site/census/index.html</loc>
     
     <lastmod>2024-03-04</lastmod>
@@ -201,15 +210,6 @@
   
   <url>
     <loc>https://zifyu.top/site/time/index.html</loc>
-    
-    <lastmod>2024-03-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zifyu.top/personal/bb/index.html</loc>
     
     <lastmod>2024-03-04</lastmod>
     
