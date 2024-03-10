@@ -2924,7 +2924,7 @@ function clearItem() {
 
 // 设置字体
 if (localStorage.getItem("font") == undefined) {
-  localStorage.setItem("font", "LXGW");
+  localStorage.setItem("font", '-apple-system');
 }
 setFont(localStorage.getItem("font"));
 function setFont(n) {
