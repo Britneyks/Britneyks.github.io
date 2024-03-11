@@ -137,16 +137,16 @@ function showWelcome() {
           posdesc = "北——京——欢迎你~~~";
           break;
         case "天津市":
-          posdesc = "讲段相声吧。";
+          posdesc = "天津桥下老运河，风吹船影入梦多。";
           break;
         case "河北省":
-          posdesc = "山势巍巍成壁垒，天下雄关。铁马金戈由此向，无限江山。";
+          posdesc = "河北山川多胜境，燕赵风情入画图。";
           break;
         case "山西省":
-          posdesc = "展开坐具长三尺，已占山河五百余。";
+          posdesc = "土高原藏古韵，山西风情入诗篇。";
           break;
         case "内蒙古自治区":
-          posdesc = "天苍苍，野茫茫，风吹草低见牛羊。";
+          posdesc = "锦绣草原似蓝天，内蒙风情入画卷。";
           break;
         case "辽宁省":
           posdesc = "我想吃烤鸡架！";
@@ -158,12 +158,12 @@ function showWelcome() {
           posdesc = "很喜欢哈尔滨大剧院。";
           break;
         case "上海市":
-          posdesc = "众所周知，中国只有两个城市。";
+          posdesc = "碧波荡漾浦江滨，高楼林立映霓霞。";
           break;
         case "江苏省":
           switch (ipLoacation.result.ad_info.city) {
             case "南京市":
-              posdesc = "这是我挺想去的城市啦。";
+              posdesc = "紫金山下紫霞飞，古都南京史久归。";
               break;
             case "苏州市":
               posdesc = "上有天堂，下有苏杭。";
@@ -199,7 +199,7 @@ function showWelcome() {
           }
           break;
         case "安徽省":
-          posdesc = "蚌埠住了，芜湖起飞。";
+          posdesc = "碧水环绕庐山巅，翠岭峥嵘秀壮观。";
           break;
         case "福建省":
           posdesc = "井邑白云间，岩城远带山。";
@@ -211,25 +211,25 @@ function showWelcome() {
           posdesc = "遥望齐州九点烟，一泓海水杯中泻。";
           break;
         case "湖北省":
-          posdesc = "来碗热干面！";
+          posdesc = "峡江千转凝碧玉，楚地风情入诗家";
           break;
         case "湖南省":
-          posdesc = "74751，长沙斯塔克。";
+          posdesc = "湘风吹拂江水碧，岳麓山下赏新春。";
           break;
         case "广东省":
-          posdesc = "老板来两斤福建人。";
+          posdesc = "珠江潺潺入珠城，繁华璀璨映岭南。";
           break;
         case "广西壮族自治区":
-          posdesc = "桂林山水甲天下。";
+          posdesc = "青山绿水画中游，桂林山水入诗流。";
           break;
         case "海南省":
           posdesc = "朝观日出逐白浪，夕看云起收霞光。";
           break;
         case "四川省":
-          posdesc = "康康川妹子。";
+          posdesc = "川上凌云属地势，川下悠悠逶迤行。";
           break;
         case "贵州省":
-          posdesc = "茅台，学生，再塞200。";
+          posdesc = "苍山如海翠如锦，黔地风光入画图。";
           break;
         case "云南省":
           posdesc = "玉龙飞舞云缠绕，万仞冰川直耸天。";
@@ -238,13 +238,13 @@ function showWelcome() {
           posdesc = "躺在茫茫草原上，仰望蓝天。";
           break;
         case "陕西省":
-          posdesc = "来份臊子面加馍。";
+          posdesc = "秦岭峦峦抱古城，兵马俑影映千秋。";
           break;
         case "甘肃省":
           posdesc = "羌笛何须怨杨柳，春风不度玉门关。";
           break;
         case "青海省":
-          posdesc = "牛肉干和老酸奶都好好吃。";
+          posdesc = "碧波荡漾映天空，茫茫草原似绿毯。";
           break;
         case "宁夏回族自治区":
           posdesc = "大漠孤烟直，长河落日圆。";
@@ -285,7 +285,7 @@ function showWelcome() {
   try {
     //自定义文本和需要放的位置
     document.getElementById("welcome-info").innerHTML =
-      `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color:var(--theme-color)">${dist}</span> 公里，当前的IP地址为： <span style="color:var(--theme-color)">${ip}</span>， ${posdesc}</b>`;
+      `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color:var(--theme-color)">${dist}</span> 公里，当前的IP地址为： <center style="color:var(--theme-color)">${ip}</center>${posdesc}</b>`;
   } catch (err) {
     // console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
   }
