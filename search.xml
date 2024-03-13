@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>基于FPGA的HDMI显示实验的学习</title>
+      <link href="/posts/56dc5909.html"/>
+      <url>/posts/56dc5909.html</url>
+      
+        <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p>🌈以下是本人对HDMI例程的学习和理解，是为了方便后续的学习，如有补充和错误，欢迎评论区留言！</p></div><h2 id="1-实验设备及要求">1.实验设备及要求</h2><p>  <strong>实验设备：正点原子达芬奇开发板（Xilinx），电脑显示屏，HDMI连接线（A接口）。</strong><br>  <strong>实验要求：驱动FPGA开发板上的HDMI接口，在显示器上显示720p彩条图案（720p分辨率为1280*720，像素时钟大约为75MHz）。</strong><br>  <strong>开发环境：Vivado_2020.2、Notepad++、Visio。</strong></p><hr><h2 id="2-HDMI接口（A型）简介">2.HDMI接口（A型）简介</h2><h3 id="2-1-HDMI引脚解析">2.1 HDMI引脚解析</h3><img src="https://bu.dusays.com/2024/03/13/65f13d722931d.png" alt="1.png" style="zoom:50%;"/><table><thead><tr><th style="text-align:center">引脚</th><th style="text-align:center">引脚类型</th><th style="text-align:center">引脚</th><th style="text-align:center">引脚类型</th><th style="text-align:center">引脚</th><th style="text-align:center">引脚类型</th></tr></thead><tbody><tr><td style="text-align:center">1</td><td style="text-align:center">数据2+</td><td style="text-align:center">2</td><td style="text-align:center">数据2屏蔽</td><td style="text-align:center">3</td><td style="text-align:center">数据2-</td></tr><tr><td style="text-align:center">4</td><td style="text-align:center">数据1+</td><td style="text-align:center">5</td><td style="text-align:center">数据1屏蔽</td><td style="text-align:center">6</td><td style="text-align:center">数据1-</td></tr><tr><td style="text-align:center">7</td><td style="text-align:center">数据0+</td><td style="text-align:center">8</td><td style="text-align:center">数据0屏蔽</td><td style="text-align:center">9</td><td style="text-align:center">数据0-</td></tr><tr><td style="text-align:center">10</td><td style="text-align:center">时钟+</td><td style="text-align:center">11</td><td style="text-align:center">时钟屏蔽</td><td style="text-align:center">12</td><td style="text-align:center">时钟-</td></tr><tr><td style="text-align:center">13</td><td style="text-align:center"><span class='nota' data-nota='HDMI控制信号，比如前进后退等'>CEC</span></td><td style="text-align:center">14</td><td style="text-align:center">保留</td><td style="text-align:center">15</td><td style="text-align:center">SCL</td></tr><tr><td style="text-align:center">16</td><td style="text-align:center">SDA</td><td style="text-align:center">17</td><td style="text-align:center">GND</td><td style="text-align:center">18</td><td style="text-align:center">5V电源</td></tr><tr><td style="text-align:center">19</td><td style="text-align:center">热插拔</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr></tbody></table><h3 id="2-2-DVI编码输出时序">2.2 DVI编码输出时序</h3><p>  当HDMI在只使用视频传输时，它的时序逻辑等同于DVI，该编码输出时序如下：<br><img src="https://bu.dusays.com/2024/03/13/65f1418a6b820.png" alt="图片1.png" /></p><p>  当VDE拉高时，则传递的是图像信息，即RGB像素数据信息；而在VDE为低电平时，传递的信号是控制信号，例如行场同步信号等。</p><h2 id="3-TMDS编码">3.TMDS编码</h2><h3 id="3-1-TMDS编码介绍及作用">3.1 TMDS编码介绍及作用</h3><p>  <strong>它的作用是对原数据加密之后通过HDMI数据线传递到接收部分进行解码，最后通过显示设备进行显示。</strong><br>  <strong>它适用于HDMI和DVI的视频图像的数据编码。原来的8为数据通过TMDS进行编码之后会变成10位数据，前面8位为原始数据通过异或、异或非两种方式之一得到，第9位是方式选择位，0表示通过异或非运算得到，1表示通过异或运算得到。第10位是直流平衡位，通过计算前面的0和1个数以及<span class='nota' data-nota='即0->1跳变和1->0跳变，将跳变次数限制在小于5次'>上冲下冲</span>次数，最终确定第10位数据。</strong><br><img src="https://bu.dusays.com/2024/03/13/65f1491a81d44.png" alt="图片2.png" title="图片2.png" /></p><p>  <strong>其中视频像素信息8位数据通过TMDS编码变为10位数据，而控制信号C0和C1通过查找表的形式变为10位数据。</strong></p><table><thead><tr><th style="text-align:center">参数名称</th><th style="text-align:center">参数作用</th></tr></thead><tbody><tr><td style="text-align:center">D、C1、C0、DE</td><td style="text-align:center">D为视频信号，C为控制信号，DE为使能信号</td></tr><tr><td style="text-align:center">Cnt</td><td style="text-align:center">寄存器参数</td></tr><tr><td style="text-align:center">N0{X}、N1{X}</td><td style="text-align:center">N0{X}、N1{X}图像数据中0、1的个数</td></tr><tr><td style="text-align:center">q_out</td><td style="text-align:center">编码后的输出</td></tr></tbody></table><p>  <strong>下面是完整的编码过程的流程图展示：</strong></p><img src="https://bu.dusays.com/2024/03/13/65f14c81d0b56.png" alt="2.png" title="2.png" /><blockquote><p>注：在计算机中表示负数的方式：首先取正数值的原码 —&gt; 取原码的反码 —&gt; 取反码的<span class='nota' data-nota='即对先前的反码加1'b1'>补码</span> —&gt; 在符号位补1<br>    例如负数‘-6’，6的原码是110，反码即001，补码是010，则最终‘-6’在计算机上的表示形式为1010。</p></blockquote><h2 id="4-HDMI彩条实验代码框图及程序详解">4.HDMI彩条实验代码框图及程序详解</h2><h3 id="4-1-整体模块框架">4.1 整体模块框架</h3><p><img src="https://bu.dusays.com/2024/03/13/65f1a6c0d454c.png" alt="3.png"></p><h3 id="4-2-各部分模块详解">4.2 各部分模块详解</h3><ol><li>PLL模块详解<br><img src="https://bu.dusays.com/2024/03/13/65f1a74f6f88a.png" alt="1710335821183.png" style="zoom:50%;"/></li></ol><table><thead><tr><th style="text-align:center">引脚名称</th><th style="text-align:center">引脚类型</th><th style="text-align:center">引脚作用</th></tr></thead><tbody><tr><td style="text-align:center">pixel_clk</td><td style="text-align:center">output</td><td style="text-align:center">提供数据的传递时钟，速度为18Gbps，则时钟为75M</td></tr><tr><td style="text-align:center">pixel_clk_5x</td><td style="text-align:center">output</td><td style="text-align:center">并转串后模块的使用时钟75x5=375M</td></tr></tbody></table><blockquote><p>模块作用：为后续模块提供时钟。</p></blockquote><ol start="2"><li>video_display模块<br><img src="https://bu.dusays.com/2024/03/13/65f1aa545b269.png" alt="1710336594996.png" style="zoom:50%;"/></li></ol><table><thead><tr><th style="text-align:center">引脚名称</th><th style="text-align:center">引脚类型</th><th style="text-align:center">引脚作用</th></tr></thead><tbody><tr><td style="text-align:center">pixel_xpos_w</td><td style="text-align:center">input</td><td style="text-align:center">当前显示位置的x坐标</td></tr><tr><td style="text-align:center">pixel_ypos_w</td><td style="text-align:center">input</td><td style="text-align:center">当前显示位置的y坐标</td></tr><tr><td style="text-align:center">pixel_data_w</td><td style="text-align:center">output</td><td style="text-align:center">根据上面坐标输出下一像素的数据信息</td></tr></tbody></table><blockquote><p>模块作用：根据video_drive模块提供的坐标信息，产生下一像素坐标的显示数据信息。</p></blockquote><ol start="3"><li>video_drive模块<br><img src="https://bu.dusays.com/2024/03/13/65f1abe884622.png" alt="1710336993745.png" style="zoom:50%;"/></li></ol><table><thead><tr><th style="text-align:center">引脚名称</th><th style="text-align:center">引脚类型</th><th style="text-align:center">引脚作用</th></tr></thead><tbody><tr><td style="text-align:center">pixel_data</td><td style="text-align:center">input</td><td style="text-align:center">由video_display产生的video数据</td></tr><tr><td style="text-align:center">video_hs/video_vs</td><td style="text-align:center">output</td><td style="text-align:center">video的行场同步数据</td></tr><tr><td style="text-align:center">video_de</td><td style="text-align:center">output</td><td style="text-align:center">数据使能信号</td></tr><tr><td style="text-align:center">video_rgb</td><td style="text-align:center">output</td><td style="text-align:center">输出的像素数据，与pixel_data相同</td></tr><tr><td style="text-align:center">pixel_xpos</td><td style="text-align:center">output</td><td style="text-align:center">显示位置的x坐标</td></tr><tr><td style="text-align:center">pixel_ypos</td><td style="text-align:center">output</td><td style="text-align:center">显示位置的y坐标</td></tr></tbody></table><blockquote><p>模块作用：根据HDMI数据时序，产生对应信号和数据信息。</p></blockquote><ol start="4"><li>dvi_transmitter_top模块<br><img src="https://bu.dusays.com/2024/03/13/65f1ae7a70b5a.png" alt="1710337657277.png" style="zoom:50%;"/></li></ol><table><thead><tr><th style="text-align:center">引脚名称</th><th style="text-align:center">引脚类型</th><th style="text-align:center">引脚作用</th></tr></thead><tbody><tr><td style="text-align:center">tmds_clk_p/tmds_clk_n</td><td style="text-align:center">out</td><td style="text-align:center">差分的时钟信号</td></tr><tr><td style="text-align:center">tmds_data_p/tmds_data_n</td><td style="text-align:center">output</td><td style="text-align:center">差分的数据信号，有三路分别是R\G\B</td></tr></tbody></table><blockquote><p>模块作用：对图像数据、行场同步信号、控制信号以及时钟信号进行编码、并转串以及单端转差分处理。</p></blockquote><h3 id="4-3-dvi-transmitter-top模块详解">4.3 dvi_transmitter_top模块详解</h3><img src="https://bu.dusays.com/2024/03/13/65f1b1e2f0241.png" alt="1710338529331.png" style="zoom:50%;"/><p>  encoder模块就是TMDS的编码模块，将8位原始数据通过TMDS编码转化为10位数据，这10位数据再通过并转串模块，即serilizer模块将10位并行数据转化为串行数据，再将串行数据TMDS模块，通过单端转差分模块，产生了差分信号。</p><blockquote><p>注意：这里的时钟信号给1111100000的原因是，在pclk_5x这个时钟下输入1111100000，那么在解码时，串转并后，时钟就会变为原来的pclk。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> FPGA学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FPGA </tag>
+            
+            <tag> HDMI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于FPGA的LCD显示实验的学习和理解</title>
       <link href="/posts/5f518ffb.html"/>
       <url>/posts/5f518ffb.html</url>
@@ -47,11 +74,11 @@
       
         <tags>
             
+            <tag> FPGA </tag>
+            
             <tag> Verilog </tag>
             
             <tag> 学习 </tag>
-            
-            <tag> FPGA </tag>
             
         </tags>
       
