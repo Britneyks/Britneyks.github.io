@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>基于FPGA的高速AD/DA模块学习记录</title>
+      <link href="/posts/b379ed9e.html"/>
+      <url>/posts/b379ed9e.html</url>
+      
+        <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p>🌈以下是本人对高速AD/DA模块的理解，是为了方便后续的学习，如有补充和错误，欢迎评论区留言！</p></div><div class="tip "><p>本篇都以正点原子提供的AD/DA模块为例进行讲解</p></div><h2 id="1-初识AD-DA模块">1.初识AD/DA模块</h2><p>  ADC全称Analog to Digital Converter，即模数转换器。它用于将现实生活中的模拟值转换为主控芯片所能识别的数字值（0和1）。<br>  DAC全称Digital to Analog Converter，即数模转换器。它用于将主控芯片产生的数字值（0和1）转换为模拟值（电压值）。</p><h2 id="2-ADC模块详解（AD9280）">2.ADC模块详解（AD9280）</h2><h3 id="2-1-AD9280模块参数表">2.1 AD9280模块参数表</h3><table><thead><tr><th style="text-align:center">参数名</th><th style="text-align:center">参数作用</th></tr></thead><tbody><tr><td style="text-align:center"><code>参考电压</code></td><td style="text-align:center"><code>在ADC转换过程中，通过将其与已知电压进行比较来找到未知电压的值，这个已知电压，称为参考电压。</code><br><code>未知电压=ADC数值*(参考电压/ADC分辨率)</code></td></tr><tr><td style="text-align:center">量化误差</td><td style="text-align:center">由于AD的有限分辩率而引起的误差，即有限分辩率AD的阶梯状转移特性曲线与无限分辩率AD(理想AD)的<br>转移特性曲线(直线)之间的最大偏差。通常是1 个或半个最小数字量的模拟变化量，表示为1LSB、1/2LSB。</td></tr><tr><td style="text-align:center">转换速率</td><td style="text-align:center">常用单位为KSPS/MSPS，即kilo/Million Samples per Second，表示每秒采样千/百万次</td></tr><tr><td style="text-align:center">分辨率</td><td style="text-align:center">分辨率由ADC芯片的数据位宽决定，数据位宽越大，分辨率就越高，采集的电压值也就越精确。</td></tr><tr><td style="text-align:center"></td><td style="text-align:center"></td></tr></tbody></table><p>  其中AD9280芯片的转换速率为<code>32MSPS</code>。芯片量程为<code>+5V~-5V</code>，代表量程范围是10V；数据<code>位宽为8位，</code>代表数据可以从0—255，即<code>256个数据</code>；<code>10V/256 ≈ 0.04V</code>，<code>这表示输入的模拟信号每升高0.04V，则输出的数字信号的值加1。</code></p><h3 id="2-2-AD9280模块引脚说明">2.2 AD9280模块引脚说明</h3><img src="https://bu.dusays.com/2024/03/14/65f28f63b17b1.png" alt="图片1.png" style="zoom:70%;"/><img src="https://bu.dusays.com/2024/03/14/65f292c2a4823.png" alt="1710396096267.png" style="zoom:50%;"/><h3 id="2-3-AD9280时序逻辑图">2.3 AD9280时序逻辑图</h3><img src="https://bu.dusays.com/2024/03/14/65f296a739932.png" alt="1.png" /><img src="https://bu.dusays.com/2024/03/14/65f297c88870b.png" alt="1710397376140.png"/><blockquote><p>注：0V一般对应数据为127或128，这里以128表示0V，那么若S1为1.2V时，它对应数字值为128 + 30 ＝ 158。<br>    具体计算过程:128 + 1.2/0.04 = 128 + 30 = 158。</p></blockquote><h2 id="3-DAC模块详解（DA9708）">3.DAC模块详解（DA9708）</h2><h3 id="3-1-DA9708模块引脚参数说明">3.1 DA9708模块引脚参数说明</h3><img src="https://bu.dusays.com/2024/03/14/65f29c614c4ee.png" alt="图片2.png" /><img src="https://bu.dusays.com/2024/03/14/65f29cde5b13a.png" alt="2.png" style="zoom:50%;"/><h3 id="3-2-DA9708模块时序逻辑图">3.2 DA9708模块时序逻辑图</h3><img src="https://bu.dusays.com/2024/03/14/65f29df8bfe43.png" alt="图片3.png"  style="zoom:50%;"/><img src="https://bu.dusays.com/2024/03/14/65f29e43b95c8.png" alt="图片4.png"  />]]></content>
+      
+      
+      <categories>
+          
+          <category> FPGA学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FPGA </tag>
+            
+            <tag> AD/DA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于FPGA的HDMI显示实验的学习</title>
       <link href="/posts/56dc5909.html"/>
       <url>/posts/56dc5909.html</url>
@@ -47,9 +74,9 @@
       
         <tags>
             
-            <tag> FPGA </tag>
-            
             <tag> LCD液晶显示模块 </tag>
+            
+            <tag> FPGA </tag>
             
         </tags>
       
@@ -74,11 +101,11 @@
       
         <tags>
             
+            <tag> FPGA </tag>
+            
             <tag> Verilog </tag>
             
             <tag> 学习 </tag>
-            
-            <tag> FPGA </tag>
             
         </tags>
       
