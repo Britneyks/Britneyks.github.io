@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zifyu.top/site/census/index.html</loc>
+    <loc>https://blog.zifyu.top/site/time/index.html</loc>
     
     <lastmod>2024-03-04</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zifyu.top/site/time/index.html</loc>
+    <loc>https://blog.zifyu.top/site/census/index.html</loc>
     
     <lastmod>2024-03-04</lastmod>
     
@@ -272,7 +272,14 @@
 
   
   <url>
-    <loc>https://blog.zifyu.top/tags/LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9D%97/</loc>
+    <loc>https://blog.zifyu.top/tags/Verilog/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zifyu.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -280,6 +287,20 @@
   
   <url>
     <loc>https://blog.zifyu.top/tags/FPGA/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zifyu.top/tags/LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9D%97/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zifyu.top/tags/HDMI/</loc>
     <lastmod>2024-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -300,28 +321,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zifyu.top/tags/HDMI/</loc>
-    <lastmod>2024-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zifyu.top/tags/AD-DA/</loc>
-    <lastmod>2024-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zifyu.top/tags/Verilog/</loc>
-    <lastmod>2024-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zifyu.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
