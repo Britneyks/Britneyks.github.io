@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.zifyu.top/site/census/index.html</loc>
+    
+    <lastmod>2024-03-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.zifyu.top/social/link/index.html</loc>
     
     <lastmod>2024-03-14</lastmod>
@@ -236,15 +245,6 @@
   </url>
   
   <url>
-    <loc>https://blog.zifyu.top/site/census/index.html</loc>
-    
-    <lastmod>2024-03-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.zifyu.top/posts/2013454d.html</loc>
     
     <lastmod>2022-10-23</lastmod>
@@ -265,64 +265,64 @@
 
   <url>
     <loc>https://blog.zifyu.top/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.zifyu.top/tags/Verilog/</loc>
-    <lastmod>2024-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.zifyu.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <loc>https://blog.zifyu.top/tags/LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9D%97/</loc>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zifyu.top/tags/FPGA/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zifyu.top/tags/Markdown/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zifyu.top/tags/%E5%A4%96%E6%8C%82%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zifyu.top/tags/AD-DA/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.zifyu.top/tags/LCD%E6%B6%B2%E6%99%B6%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%9D%97/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <loc>https://blog.zifyu.top/tags/Verilog/</loc>
+    <lastmod>2024-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.zifyu.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zifyu.top/tags/HDMI/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -331,14 +331,14 @@
   
   <url>
     <loc>https://blog.zifyu.top/categories/FPGA%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.zifyu.top/categories/%E6%BC%94%E7%A4%BA/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
