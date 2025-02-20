@@ -6,7 +6,7 @@
   <link href="https://blog.zifyu.top/atom.xml" rel="self"/>
   
   <link href="https://blog.zifyu.top/"/>
-  <updated>2024-04-17T03:09:18.000Z</updated>
+  <updated>2025-02-20T11:32:00.044Z</updated>
   <id>https://blog.zifyu.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>串口通信学习笔记记录</title>
+    <link href="https://blog.zifyu.top/posts/edc30276.html"/>
+    <id>https://blog.zifyu.top/posts/edc30276.html</id>
+    <published>2025-02-20T03:38:44.000Z</published>
+    <updated>2025-02-20T11:32:00.044Z</updated>
+    
+    <content type="html"><![CDATA[<div class="note blue icon-padding flat"><i class="note-icon fas fa-bullhorn"></i><p>🌈以下是本人在串口通信学习过程中的理解和笔记记录，是为了方便后续的学习，如有补充和错误，欢迎评论区留言！</p></div><h1>串口通信</h1><h2 id="1-通信方式分类">1.通信方式分类</h2><p>  <strong>按数据通信方式分类：串行通信、并行通信</strong><br><img src="https://bu.dusays.com/2025/02/20/67b6d73e7274a.png" alt="1740035899949.png" style="zoom:50%;"/></img></p><table><thead><tr><th style="text-align:center">通信方式</th><th style="text-align:center">优点</th><th style="text-align:center">缺点</th></tr></thead><tbody><tr><td style="text-align:center">串行通信</td><td style="text-align:center">占用的引脚IO少，成本低</td><td style="text-align:center">传输速率低</td></tr><tr><td style="text-align:center">并行通信</td><td style="text-align:center">传输速率快</td><td style="text-align:center">占用的引脚IO较多，成本高</td></tr></tbody></table><p>  <strong>按数据传输方向分类：单工通信、半双工通信、全双工通信</strong><br><img src="https://bu.dusays.com/2025/02/20/67b6d9282ad66.png" alt="1740036390128.png" style="zoom:50%;"/></img></p><table><thead><tr><th style="text-align:center">通信方式</th><th style="text-align:center">特点</th></tr></thead><tbody><tr><td style="text-align:center">单工通信</td><td style="text-align:center">数据只能沿一个方向传输</td></tr><tr><td style="text-align:center">半双工通信</td><td style="text-align:center">数据可以沿两个方向传输，但需要分时进行</td></tr><tr><td style="text-align:center">全双工通信</td><td style="text-align:center">数据可以同时进行双向传输</td></tr></tbody></table><p>  <strong>按数据同步方式分类：同步通信、异步通信</strong><br><img src="https://bu.dusays.com/2025/02/20/67b6da0c87573.png" alt="1740036617097.png" style="zoom:50%;"/></img></p><table><thead><tr><th style="text-align:center">通信方式</th><th style="text-align:center">特点</th></tr></thead><tbody><tr><td style="text-align:center">同步通信</td><td style="text-align:center">带时钟端口的数据传输</td></tr><tr><td style="text-align:center">异步通信</td><td style="text-align:center">没有时钟端口，发送方和接收方使用各自的时钟控制数据的收发过程</td></tr></tbody></table><p>  <strong>常见串行通信接口特点</strong></p><table><thead><tr><th style="text-align:center">通信标准</th><th style="text-align:center">引脚说明</th><th style="text-align:center">通信方式</th><th style="text-align:center">通信方向</th></tr></thead><tbody><tr><td style="text-align:center">UART （通用异步收发器）</td><td style="text-align:center">TXD:发送端 RXD:接收端 GND:公共地</td><td style="text-align:center">异步通信</td><td style="text-align:center">全双工</td></tr><tr><td style="text-align:center">1-WIRE (单总线)</td><td style="text-align:center">DQ:发送/接收端</td><td style="text-align:center">异步通信</td><td style="text-align:center">半双工</td></tr><tr><td style="text-align:center">IIC</td><td style="text-align:center">SCL:同步时钟 SDA:数据输入/输出端</td><td style="text-align:center">同步通信</td><td style="text-align:center">全双工</td></tr><tr><td style="text-align:center">SPI</td><td style="text-align:center">SCK:同步时钟 MISO:主机输入，从机输出<br> MOSI:主机输出，从机输入 CS:片选信号</td><td style="text-align:center">同步通信</td><td style="text-align:center">半双工</td></tr></tbody></table><h2 id="2-UART串口通信">2.UART串口通信</h2><h3 id="UART串口是什么">UART串口是什么</h3><p>  UART（Universal Asynchronous Receiver-Transmitter）：即通用异步收发器，是一种通用串行数据总线，用于异步通信。一般UART接口常指串口。<br>  UART在发送数据时将并行数据转换成串行数据来传输，在接收数据时将接收到的串行数据转换成并行数据</p><h3 id="UART协议层">UART协议层</h3><p>  <strong>UART串口通信数据格式</strong><br><img src="https://bu.dusays.com/2025/02/20/67b6de2b69650.png" alt="1740037673550.png" style="zoom:50%;"/></img></p><p><code>起始位</code>：一帧的开始，必须保持一个比特位的低电平0<br><code>数据位</code>：传输的有效数据，数据位可选5~8位；LSB在前，MSB在后<br><code>校验位</code>：可选位，占用1个比特位，也可以没有校验<br><code>停止位</code>：一帧的结束，必须有，可选占用0.5/1/1.5/2个比特位，保持逻辑高电平1</p><div class="note info flat"><p>奇校验：保证数据位和校验位1的个数为奇数。偶校验：保证数据位和校验位1的个数为偶数。</p></div><p>  <strong>UART串口通信传输速率：波特率</strong><br>  波特率（BaudRate）：串口通信的速率用波特率表示，它表示每秒传输二进制数据的位数，单位是bps（位/秒）<br>  常用的波特率有9600、19200、38400、57600以及115200等。<br>  <strong>UART串口通信是异步通信，所以其实它与时钟周期是无关的，决定它的传输速率是波特率。例如波特率为115200，表示一秒钟传输115200位数据。1秒钟是10^9ns，那么1位数据所需要传输的时间就是10^9/115200≈8680.56ns，假设是在50M的时钟周期下，1位数据传输所需要的时钟周期个数为8680.56ns/20ns≈434个，在100M的时钟周期下所需要的时钟周期个数就是8680.56ns/10ns≈868个</strong></p><h2 id="3-UART串口通信实验">3.UART串口通信实验</h2><h3 id="1-实验设备及要求">1.实验设备及要求</h3><p><strong>实验设备</strong>：正点原子达芬奇开发板（Xilinx），电脑（上位机）<br><strong>实验要求</strong>：上位机通过串口调试助手发送数据给开发板，开发板通过USB UART串口接收数据并将接收到的数据发送给上位机，完成串口数据环回。UART通信波特率：115200，停止位：1，数据位：8位，无校验位。<br><strong>开发环境</strong>：Vivado_2020、Vscode、Visio。</p><hr>]]></content>
+    
+    
+    <summary type="html">🥧本文介绍了基于达芬奇FPGA串口通信实验学习</summary>
+    
+    
+    
+    <category term="FPGA学习" scheme="https://blog.zifyu.top/categories/FPGA%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="https://blog.zifyu.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="FPGA" scheme="https://blog.zifyu.top/tags/FPGA/"/>
+    
+  </entry>
   
   <entry>
     <title>数字锁相环中使用的IP核认识与参数配置</title>
